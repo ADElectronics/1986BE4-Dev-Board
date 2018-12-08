@@ -1,0 +1,6 @@
+r
+loadbin build\Firmware.bin, 0x0000
+verifybin build\Firmware.bin, 0x0000
+r
+g
+q

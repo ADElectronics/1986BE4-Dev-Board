@@ -1,0 +1,50 @@
+{
+  "version": "0.2.1",
+  "defaults": {},
+  "configurations": [
+    {
+      "type": "cppdbg",
+      "name": "Firmware.bin",
+      "project": "build\\Firmware.bin",
+      "cwd": "${workspaceRoot}",
+      "program": "${workspaceRoot}\\build\\Firmware.elf",
+      "MIMode": "gdb",
+      "externalConsole": true,
+      "inheritEnvironments": [
+        "linux-gcc-arm"
+      ],
+      "miDebuggerPath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\Linux\\gcc_arm\\bin\\arm-none-eabi-gdb.exe",
+      "setupCommands": [
+        {
+          "text": "-environment-cd ${workspaceRoot}\\build"
+        },
+        {
+          "text": "-file-exec-and-symbols Firmware.elf",
+          "description": "load file",
+          "ignoreFailures": false
+        },
+        {
+          "text": "monitor reset halt",
+          "ignoreFailures": true
+        },
+        {
+          "text": "monitor reset init",
+          "ignoreFailures": true
+        },
+        {
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "miDebuggerServerAddress": "localhost:2331",
+      "visualizerFile": "${debugInfo.linuxNatvisPath}",
+      "showDisplayString": true,
+      "launchCompleteCommand": "None",
+      "filterStderr": true,
+      "filterStdout": true,
+      //"debugServerPath": "path-to-your\\gdbserver.exe",
+      //"debugServerArgs": "-f path-to-your/board.cfg",
+      //"serverStarted": "GDB\\ server\\ started"
+    }
+  ]
+}

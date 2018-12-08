@@ -1,0 +1,61 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskName": "Build",
+      "appliesTo": "Makefile",
+      "contextType": "build",
+      "type": "default",
+      "command": "${env.COMSPEC}",
+      "args": [
+        "bash -l -c 'make -s -j 5 all'"
+      ]
+    },
+    {
+      "taskName": "Clean",
+      "appliesTo": "Makefile",
+      "contextType": "clean",
+      "type": "default",
+      "command": "${env.COMSPEC}",
+      "args": [
+        "bash -l -c 'make -s clean'"
+      ]
+    },
+    {
+      "taskName": "Write to Flash MCU",
+      "appliesTo": "Makefile",
+      "type": "default",
+      "command": "${env.COMSPEC}",
+      "args": [
+        "JLink.exe -Device 1986BE4 -If SWD -Speed 1000 JLink\\FlashMCU.jlink"
+      ]
+    },
+    {
+      "taskName": "Read Flash from MCU",
+      "appliesTo": "Makefile",
+      "type": "default",
+      "command": "${env.COMSPEC}",
+      "args": [
+        "JLink.exe -Device 1986BE4 -If SWD -Speed 1000 JLink\\ReadMCU.jlink"
+      ]
+    },
+    {
+      "taskName": "Erase Flash MCU",
+      "appliesTo": "Makefile",
+      "type": "default",
+      "command": "${env.COMSPEC}",
+      "args": [
+        "JLink.exe -Device 1986BE4 -If SWD -Speed 1000 JLink\\EraseMCU.jlink"
+      ]
+    },
+    {
+      "taskName": "Reset MCU",
+      "appliesTo": "Makefile",
+      "type": "default",
+      "command": "${env.COMSPEC}",
+      "args": [
+        "JLink.exe -Device 1986BE4 -If SWD -Speed 1000 JLink\\ResetMCU.jlink"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+#Build
+/build/*
+!/build/Firmware.bin
+!/build/Firmware.hex
+!/build/Firmware.elf
+!/build/Firmware_MCU.bin
+
+# Visual Studio
+/.vs/*
+!/.vs/tasks.vs.json
+!/.vs/launch.vs.json

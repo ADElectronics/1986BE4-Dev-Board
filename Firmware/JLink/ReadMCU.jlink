@@ -1,0 +1,4 @@
+savebin build\Firmware_MCU.bin, 0x00, 0x1f400
+r
+g
+q
